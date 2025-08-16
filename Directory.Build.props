@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <!-- Root of the repo where this file lives -->
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+
+    <!-- Put all obj under one place: build/obj/<ProjectName>/ -->
+    <BaseIntermediateOutputPath>$(RepoRoot)build/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+
+    <!-- Base bin path: build/bin/ -->
+    <BaseOutputPath>$(RepoRoot)build/bin/</BaseOutputPath>
+
+    <!-- Final per-project output path to avoid collisions -->
+    <OutputPath>$(BaseOutputPath)$(Configuration)/$(TargetFramework)/$(MSBuildProjectName)/</OutputPath>
+
+    <!-- Keep TFM/RID suffixes when other SDK targets compute outputs -->
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+</Project>
